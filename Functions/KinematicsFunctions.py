@@ -191,7 +191,7 @@ def pairwise_dtw(iterable):
     dtw_result = []
     for i in range(len(iterable)-1):
         for j in range(i+1, len(iterable)):
-            distance, _ = fastdtw.fastdtw(iterable[i], iterable[j], dist=euclidean)
+            distance, _ = fastdtw.fastdtw(iterable[i], iterable[j], dist=2)
             dtw_result.append(distance)
     return dtw_result
 
