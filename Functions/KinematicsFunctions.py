@@ -13,7 +13,7 @@ from sklearn.mixture import GaussianMixture
 
 def read_file(file):
     pd_dataframe = pd.read_csv(file, header=[1, 2])
-    filename = file.split("/")[-1]
+    filename = os.path.basename(file)
     return pd_dataframe, filename
 
 
