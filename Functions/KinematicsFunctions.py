@@ -360,7 +360,7 @@ def extract_parameters(frame_rate, pd_dataframe, cutoff_f, bodypart, cm_speed=No
     bodypart: which bodypart to use for stride estimation
 
     '''
-    bodyparts = ['toe', 'mtp', 'ankle', 'knee', 'hip', 'iliac crest'] # modify this
+    bodyparts = ['toe', 'mtp', 'ankle', 'knee', 'hip', 'iliac_crest'] # modify this
     starts = []
     ends = []
 
@@ -435,14 +435,14 @@ def extract_parameters(frame_rate, pd_dataframe, cutoff_f, bodypart, cm_speed=No
     smooth_ankle_x = butterworth_filter(pd_dataframe_corrected['ankle x'], frame_rate, cutoff_f)
     smooth_knee_x = butterworth_filter(pd_dataframe_corrected['knee x'], frame_rate, cutoff_f)
     smooth_hip_x = butterworth_filter(pd_dataframe_corrected['hip x'], frame_rate, cutoff_f)
-    smooth_crest_x = butterworth_filter(pd_dataframe_corrected['iliac crest x'], frame_rate, cutoff_f)
+    smooth_crest_x = butterworth_filter(pd_dataframe_corrected['iliac_crest x'], frame_rate, cutoff_f)
 
     smooth_toe_y = butterworth_filter(pd_dataframe['toe y'], frame_rate, cutoff_f)
     smooth_mtp_y = butterworth_filter(pd_dataframe['mtp y'], frame_rate, cutoff_f)
     smooth_ankle_y = butterworth_filter(pd_dataframe['ankle y'], frame_rate, cutoff_f)
     smooth_knee_y = butterworth_filter(pd_dataframe['knee y'], frame_rate, cutoff_f)
     smooth_hip_y = butterworth_filter(pd_dataframe['hip y'], frame_rate, cutoff_f)
-    smooth_crest_y = butterworth_filter(pd_dataframe['iliac crest y'], frame_rate, cutoff_f)
+    smooth_crest_y = butterworth_filter(pd_dataframe['iliac_crest y'], frame_rate, cutoff_f)
     
     angles_toe_mtp_ankle, \
         angles_mtp_ankle_knee, \
@@ -908,7 +908,7 @@ def extract_spontaneous_parameters(frame_rate, pd_dataframe, cutoff_f, pixels_pe
     bodypart: which bodypart to use for stride estimation
     '''
 
-    bodyparts = ['toe', 'mtp', 'ankle', 'knee', 'hip', 'iliac crest'] # should be modified to detect names / change this manually on error!
+    bodyparts = ['toe', 'mtp', 'ankle', 'knee', 'hip', 'iliac_crest'] # should be modified to detect names / change this manually on error!
     starts_all = []
     ends_all = []
     limbs = []
@@ -979,14 +979,14 @@ def extract_spontaneous_parameters(frame_rate, pd_dataframe, cutoff_f, pixels_pe
             smooth_ankle_x = butterworth_filter(pd_dataframe[f'ankle{direction} x'], frame_rate, cutoff_f)
             smooth_knee_x = butterworth_filter(pd_dataframe[f'knee{direction} x'], frame_rate, cutoff_f)
             smooth_hip_x = butterworth_filter(pd_dataframe[f'hip{direction} x'], frame_rate, cutoff_f)
-            smooth_crest_x = butterworth_filter(pd_dataframe[f'iliac crest{direction} x'], frame_rate, cutoff_f)
+            smooth_crest_x = butterworth_filter(pd_dataframe[f'iliac_crest{direction} x'], frame_rate, cutoff_f)
 
             smooth_toe_y = butterworth_filter(pd_dataframe[f'toe{direction} y'], frame_rate, cutoff_f)
             smooth_mtp_y = butterworth_filter(pd_dataframe[f'mtp{direction} y'], frame_rate, cutoff_f)
             smooth_ankle_y = butterworth_filter(pd_dataframe[f'ankle{direction} y'], frame_rate, cutoff_f)
             smooth_knee_y = butterworth_filter(pd_dataframe[f'knee{direction} y'], frame_rate, cutoff_f)
             smooth_hip_y = butterworth_filter(pd_dataframe[f'hip{direction} y'], frame_rate, cutoff_f)
-            smooth_crest_y = butterworth_filter(pd_dataframe[f'iliac crest{direction} y'], frame_rate, cutoff_f)
+            smooth_crest_y = butterworth_filter(pd_dataframe[f'iliac_crest{direction} y'], frame_rate, cutoff_f)
 
             angles_toe_mtp_ankle = find_angles(
                     smooth_toe_x, smooth_toe_y, 
