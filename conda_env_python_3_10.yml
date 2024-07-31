@@ -1,4 +1,4 @@
-name: venv_python_3_10
+name: alma
 channels:
   - conda-forge
   - defaults
