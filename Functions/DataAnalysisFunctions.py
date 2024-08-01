@@ -46,7 +46,7 @@ def combine_files(file_lists, group_names, output_path, file_type="strides"):
         if file_type == "strides":
             # remove stride start / end frame columns
             combined_df = pd.concat(dfs).iloc[:, 2:]
-            combined_df.fillna(combined_df.mean(), inplace=True)
+            combined_df.fillna(combined_df.mean(numeric_only=True), inplace=True)
         elif file_type == "average":
             combined_df = (
                 pd.concat(dfs)
