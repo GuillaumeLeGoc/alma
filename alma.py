@@ -1,6 +1,10 @@
+import warnings
+
 import wx
 
 from Panels import PCA, AnalyzeFootfall, AnalyzeStride, RandomForest, Start
+
+warnings.filterwarnings("ignore")
 
 
 class HomeFrame(wx.Frame):
