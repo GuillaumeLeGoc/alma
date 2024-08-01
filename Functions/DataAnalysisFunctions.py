@@ -144,10 +144,12 @@ def PCA(combined_df, output_path):
     # train data: remove id / group name columns
     x = combined_df.iloc[:, 2:]
     y = combined_df["group"]
-
-    pca = sklearn.decomposition.PCA(n_components=5)
+    
+    n_components = min(5, len(x))
+    colnames = ["PC1", "PC2", "PC3", "PC4", "PC5"]
+    pca = sklearn.decomposition.PCA(n_components=n_components)
     pc = pca.fit_transform(x)
-    pc_df = pd.DataFrame(pc, columns=["PC1", "PC2", "PC3", "PC4", "PC5"])
+    pc_df = pd.DataFrame(pc, columns=colnames[0:n_components])
     pc_df["Cluster"] = list(y)
 
     plot_pca_clusters(pca, pc_df, output_path)
