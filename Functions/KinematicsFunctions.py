@@ -1,6 +1,7 @@
 import math
 import os
 import statistics as stat
+import warnings
 
 import fastdtw
 import matplotlib.pyplot as plt
@@ -9,6 +10,8 @@ import pandas as pd
 import scipy
 from scipy.signal import butter, filtfilt
 from sklearn.mixture import GaussianMixture
+
+warnings.filterwarnings("ignore")
 
 
 def read_file(file):

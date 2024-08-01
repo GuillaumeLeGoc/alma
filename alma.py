@@ -2,9 +2,8 @@ import wx
 
 from Panels import PCA, AnalyzeFootfall, AnalyzeStride, RandomForest, Start
 
-import os
-
-os.environ["OMP_NUM_THREADS"] = "1"
+import warnings
+warnings.filterwarnings('ignore')
 
 
 class HomeFrame(wx.Frame):
