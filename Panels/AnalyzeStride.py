@@ -759,6 +759,7 @@ class AnalyzeStridePanel(wx.Panel):
                     if self.pixels_per_cm != "":
                         self.est_pixels_per_cm = self.pixels_per_cm
 
+                    print(f"working on {self.filename}...")
                     parameters, pd_dataframe_coords, is_stance, bodyparts = (
                         KinematicsFunctions.extract_parameters(
                             self.frame_rate,
@@ -770,6 +771,15 @@ class AnalyzeStridePanel(wx.Panel):
                             right_to_left=self.right_to_left,
                         )
                     )
+                    if not is_stance:
+                        print(
+                            f"\nFailed to extract stride from {self.filename}, skipping\n"
+                        )
+                        self.GetParent().SetStatusText(
+                            f"\nFailed to extract stride from {self.filename}, skipping\n"
+                        )
+                        continue
+
                     parameters_truncated = KinematicsFunctions.return_continuous(
                         parameters,
                         10,
@@ -797,7 +807,7 @@ class AnalyzeStridePanel(wx.Panel):
 
                     if self.pixels_per_cm != "":
                         self.est_pixels_per_cm = self.pixels_per_cm
-
+                    print(f"Working on {self.filename}...")
                     parameters, pd_dataframe_coords, is_stance, bodyparts = (
                         KinematicsFunctions.extract_parameters(
                             self.frame_rate,
@@ -809,6 +819,15 @@ class AnalyzeStridePanel(wx.Panel):
                             right_to_left=self.right_to_left,
                         )
                     )
+                    if not is_stance:
+                        print(
+                            f"\nFailed to extract stride from {self.filename}, skipping\n"
+                        )
+                        self.GetParent().SetStatusText(
+                            f"\nFailed to extract stride from {self.filename}, skipping\n"
+                        )
+                        continue
+
                     parameters_truncated = KinematicsFunctions.return_continuous(
                         parameters,
                         10,
