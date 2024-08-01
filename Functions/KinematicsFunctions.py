@@ -1,7 +1,6 @@
 import math
 import os
 import statistics as stat
-import warnings
 
 import fastdtw
 import matplotlib.pyplot as plt
@@ -10,8 +9,6 @@ import pandas as pd
 import scipy
 from scipy.signal import butter, filtfilt
 from sklearn.mixture import GaussianMixture
-
-warnings.filterwarnings("ignore")
 
 
 def read_file(file):
@@ -1896,6 +1893,9 @@ def continuous_stickplot(
     y_min = min(y_coords.loc[:, start:end].min())
     y_max = max(y_coords.loc[:, start:end].max())
     y_range = y_max - y_min
+    if x_range < y_range:
+        print("ERROR : not enough data to plot, please check the config.yaml file")
+        return
     plt.figure(figsize=(x_range // y_range * 5, 5))
 
     for t in filt_corrected_df.index[start:end]:

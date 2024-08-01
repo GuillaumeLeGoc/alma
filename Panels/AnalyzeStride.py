@@ -938,6 +938,14 @@ class AnalyzeStridePanel(wx.Panel):
                         right_to_left=self.right_to_left,
                     )
                 )
+                if not is_stance:
+                    print(
+                        f"\nFailed to extract stride from {self.filename}, skipping\n"
+                    )
+                    self.GetParent().SetStatusText(
+                        f"\nFailed to extract stride from {self.filename}, skipping\n"
+                    )
+                    return
             elif self.method_selection == "Fully automated":
                 parameters, pd_dataframe_coords, is_stance, bodyparts = (
                     KinematicsFunctions.extract_parameters(
@@ -950,6 +958,14 @@ class AnalyzeStridePanel(wx.Panel):
                         right_to_left=self.right_to_left,
                     )
                 )
+                if not is_stance:
+                    print(
+                        f"\nFailed to extract stride from {self.filename}, skipping\n"
+                    )
+                    self.GetParent().SetStatusText(
+                        f"\nFailed to extract stride from {self.filename}, skipping\n"
+                    )
+                    return
             parameters_truncated = KinematicsFunctions.return_continuous(
                 parameters,
                 10,

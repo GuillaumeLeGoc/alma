@@ -176,9 +176,6 @@ class HomeFrame(wx.Frame):
 
 if __name__ == "__main__":
     from Functions import ConfigFunctions
-    import locale
-
-    locale.setlocale(locale.LC_ALL, "C")
 
     configs = ConfigFunctions.load_config("./config.yaml")
     window_width, window_height = configs["window_width"], configs["window_height"]
