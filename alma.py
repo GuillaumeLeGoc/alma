@@ -2,6 +2,10 @@ import wx
 
 from Panels import PCA, AnalyzeFootfall, AnalyzeStride, RandomForest, Start
 
+import os
+
+os.environ["OMP_NUM_THREADS"] = "1"
+
 
 class HomeFrame(wx.Frame):
     def __init__(self, *args, **kw):
