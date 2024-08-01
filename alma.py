@@ -2,9 +2,6 @@ import wx
 
 from Panels import PCA, AnalyzeFootfall, AnalyzeStride, RandomForest, Start
 
-import warnings
-warnings.filterwarnings('ignore')
-
 
 class HomeFrame(wx.Frame):
     def __init__(self, *args, **kw):
@@ -180,6 +177,7 @@ if __name__ == "__main__":
     window_width, window_height = configs["window_width"], configs["window_height"]
 
     app = wx.App(redirect=True)
+    app.locale = wx.Locale(wx.LANGUAGE_ENGLISH)
     home_frame = HomeFrame(
         None,
         title="ALMA - Automated Limb Motion Analysis",
